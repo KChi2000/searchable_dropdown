@@ -440,7 +440,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   InputDecoration _manageDropdownDecoration(FormFieldState state) {
     return (widget.dropdownDecoratorProps.dropdownSearchDecoration ??
             const InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(12, 12, 0, 0),
+              // contentPadding: EdgeInsets.fromLTRB(12, 12, 0, 0),
               border: OutlineInputBorder(),
             ))
         .applyDefaults(Theme.of(state.context).inputDecorationTheme)

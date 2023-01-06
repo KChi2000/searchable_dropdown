@@ -61,7 +61,8 @@ class TextFieldProps {
     this.decoration = const InputDecoration(
         border: OutlineInputBorder(),
         hintText: 'Nhập để tìm kiếm lái xe',
-        hintStyle: TextStyle(fontSize: 14)
+        hintStyle: TextStyle(fontSize: 14),
+        isDense: true
         ),
     this.keyboardType,
     this.textInputAction,
@@ -83,7 +84,7 @@ class TextFieldProps {
     this.enableSuggestions = true,
     this.maxLines,
     this.minLines = 1,
-    this.expands = false,
+    this.expands = true,
     this.maxLength=null,
     this.maxLengthEnforcement,
     this.onAppPrivateCommand,
