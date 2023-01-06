@@ -88,7 +88,7 @@ class PopupProps<T> {
     this.dialogProps = const DialogProps(),
     this.modalBottomSheetProps = const ModalBottomSheetProps(),
     this.menuProps = const MenuProps(),
-    this.searchFieldProps = const TextFieldProps(decoration: InputDecoration(hintText: 'Nhập để tìm kiếm lái xe',hintStyle: TextStyle(color: Colors.black))),
+    this.searchFieldProps = const TextFieldProps(),
     this.scrollbarProps = const ScrollbarProps(),
     this.listViewProps = const ListViewProps(),
     this.favoriteItemProps = const FavoriteItemProps(),

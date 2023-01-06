@@ -58,7 +58,10 @@ class TextFieldProps {
 
   const TextFieldProps({
     this.controller,
-    this.decoration = const InputDecoration(border: OutlineInputBorder()),
+    this.decoration = const InputDecoration(
+        border: OutlineInputBorder(),
+        hintText: 'Nhập để tìm kiếm lái xe',
+        hintStyle: TextStyle(color: Colors.black)),
     this.keyboardType,
     this.textInputAction,
     this.textCapitalization = TextCapitalization.none,
