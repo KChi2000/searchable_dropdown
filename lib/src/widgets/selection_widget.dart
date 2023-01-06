@@ -405,7 +405,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     _itemsStream.addError(error, stackTrace);
   }
 
-  Widget _itemWidgetSingleSelection(T item) {
+  Widget _itemWidgetSingleSelection(dynamic item) {
     if (widget.popupProps.itemBuilder != null) {
       var w = widget.popupProps.itemBuilder!(
         context,
@@ -424,7 +424,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     } else {
       return ListTile(
         enabled: !_isDisabled(item),
-        title: Text(_selectedItemAsString(item),style: TextStyle(fontSize: 14),),
+        title: Text('${item.hoTen}',style: TextStyle(fontSize: 14),),
         selected: !widget.popupProps.showSelectedItems
             ? false
             : _isSelectedItem(item),
@@ -685,13 +685,13 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
   }
 
   ///function that return the String value of an object
-  String _selectedItemAsString(dynamic data) {
+  String _selectedItemAsString(T data) {
     if (data == null) {
       return "";
     } else if (widget.itemAsString != null) {
       return widget.itemAsString!(data);
     } else {
-      return data.hoTen.toString();
+      return data.toString();
     }
   }
 
