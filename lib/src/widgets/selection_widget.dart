@@ -405,7 +405,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     _itemsStream.addError(error, stackTrace);
   }
 
-  Widget _itemWidgetSingleSelection(dynamic item) {
+  Widget _itemWidgetSingleSelection(T item) {
     if (widget.popupProps.itemBuilder != null) {
       var w = widget.popupProps.itemBuilder!(
         context,
@@ -424,7 +424,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     } else {
       return ListTile(
         enabled: !_isDisabled(item),
-        title: Text('${item.hoTen}',style: TextStyle(fontSize: 14),),
+        title: Text(item is ThongTinLaiXe? '${item.hoTen}':'$item',style: TextStyle(fontSize: 14),),
         selected: !widget.popupProps.showSelectedItems
             ? false
             : _isSelectedItem(item),
