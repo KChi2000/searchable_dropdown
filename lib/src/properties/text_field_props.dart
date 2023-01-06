@@ -16,7 +16,7 @@ class TextFieldProps {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final TextCapitalization textCapitalization;
-  final TextStyle? style;
+  final TextStyle style;
   final StrutStyle? strutStyle;
   final TextAlign textAlign;
   final TextAlignVertical? textAlignVertical;
@@ -66,7 +66,7 @@ class TextFieldProps {
     this.keyboardType,
     this.textInputAction,
     this.textCapitalization = TextCapitalization.none,
-    this.style,
+    this.style =const TextStyle(fontSize: 14),
     this.strutStyle,
     this.textAlign = TextAlign.start,
     this.textAlignVertical,
