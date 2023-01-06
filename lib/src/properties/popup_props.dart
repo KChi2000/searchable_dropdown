@@ -108,7 +108,7 @@ class PopupProps<T> {
 
   const PopupProps.menu({
     this.title,
-    this.fit = FlexFit.tight,
+    this.fit = FlexFit.loose,
     this.showSearchBox = false,
     this.menuProps = const MenuProps(),
     this.searchFieldProps = const TextFieldProps(),
