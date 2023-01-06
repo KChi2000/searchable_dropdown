@@ -97,7 +97,7 @@ class TextFieldProps {
     this.selectionWidthStyle = ui.BoxWidthStyle.tight,
     this.keyboardAppearance,
     this.scrollPadding = const EdgeInsets.all(10.0),
-    this.padding = const EdgeInsets.all(8.0),
+    this.padding = const EdgeInsets.all(0.0),
     this.dragStartBehavior = DragStartBehavior.start,
     this.enableInteractiveSelection = true,
     this.selectionControls,
