@@ -84,7 +84,7 @@ class TextFieldProps {
     this.enableSuggestions = true,
     this.maxLines,
     this.minLines = 1,
-    this.expands = true,
+    this.expands = false,
     this.maxLength=null,
     this.maxLengthEnforcement,
     this.onAppPrivateCommand,
