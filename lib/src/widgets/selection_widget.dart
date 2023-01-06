@@ -426,11 +426,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
       return ListTile(
         enabled: !_isDisabled(item),
         title: Text(
-          item is ThongTinLaiXe
-              ? '${item.hoTen}'
-              : item is XeDuKienTheoKeHoach
-                  ? '${item.bienKiemSoat}'
-                  : '$item',
+          _selectedItemAsString(item),
           style: TextStyle(fontSize: 14),
         ),
         selected: !widget.popupProps.showSelectedItems
