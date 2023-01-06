@@ -81,7 +81,7 @@ class PopupProps<T> {
 
   const PopupProps._({
     this.mode = Mode.MENU,
-    this.fit = FlexFit.tight,
+    this.fit = FlexFit.loose,
     this.title,
     this.showSearchBox = false,
     this.bottomSheetProps = const BottomSheetProps(),
