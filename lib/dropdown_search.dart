@@ -183,7 +183,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.onBeforePopupOpening,
     PopupProps<T> popupProps = const PopupProps.menu(),
   })  : assert(
-          !popupProps.showSelectedItems || T == String || compareFn != null,
+          !popupProps.showSelectedItems || compareFn != null,
         ),
         this.popupProps = PopupPropsMultiSelection.from(popupProps),
         this.isMultiSelectionMode = false,
