@@ -84,8 +84,8 @@ class DropdownSearch<T> extends StatefulWidget {
   final List<T> items;
 
   ///selected item
-   T? selectedItem;
-   String? selectedItem1;
+  final T? selectedItem;
+
   ///selected items
   final List<T> selectedItems;
 
@@ -120,14 +120,14 @@ class DropdownSearch<T> extends StatefulWidget {
   final AutovalidateMode? autoValidateMode;
 
   /// An optional method to call with the final value when the form is saved via
-  final FormFieldSetter? onSaved;
+  final FormFieldSetter<T>? onSaved;
 
   /// An optional method to call with the final value when the form is saved via
   final FormFieldSetter<List<T>>? onSavedMultiSelection;
 
   /// An optional method that validates an input. Returns an error string to
   /// display if the input is invalid, or null otherwise.
-  final FormFieldValidator? validator;
+  final FormFieldValidator<T>? validator;
 
   /// An optional method that validates an input. Returns an error string to
   /// display if the input is invalid, or null otherwise.
@@ -169,7 +169,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.autoValidateMode = AutovalidateMode.disabled,
     this.onChanged,
     this.items = const [],
-    this.selectedItem1,
+    this.selectedItem,
     this.asyncItems,
     this.dropdownBuilder,
     this.dropdownDecoratorProps = const DropDownDecoratorProps(),
@@ -367,18 +367,19 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   }
 
   Widget _formField() {
-    return 
-        _formFieldSingleSelection();
+    return isMultiSelectionMode
+        ? _formFieldMultiSelection()
+        : _formFieldSingleSelection();
   }
 
   Widget _formFieldSingleSelection() {
-    return FormField(
+    return FormField<T>(
       enabled: widget.enabled,
       onSaved: widget.onSaved,
       validator: widget.validator,
       autovalidateMode: widget.autoValidateMode,
-      initialValue: widget.selectedItem1,
-      builder: (FormFieldState state) {
+      initialValue: widget.selectedItem,
+      builder: (FormFieldState<T> state) {
         if (state.value != getSelectedItem) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             state.didChange(getSelectedItem);
@@ -403,37 +404,37 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
     );
   }
 
-  // Widget _formFieldMultiSelection() {
-  //   return FormField<List<>>(
-  //     enabled: widget.enabled,
-  //     onSaved: widget.onSavedMultiSelection,
-  //     validator: widget.validatorMultiSelection,
-  //     autovalidateMode: widget.autoValidateMode,
-  //     initialValue: widget.selectedItems,
-  //     builder: (FormFieldState<List<T>> state) {
-  //       if (state.value != getSelectedItems) {
-  //         WidgetsBinding.instance.addPostFrameCallback((_) {
-  //           state.didChange(getSelectedItems);
-  //         });
-  //       }
-  //       return ValueListenableBuilder<bool>(
-  //           valueListenable: _isFocused,
-  //           builder: (context, isFocused, w) {
-  //             return InputDecorator(
-  //               baseStyle: widget.dropdownDecoratorProps.baseStyle,
-  //               textAlign: widget.dropdownDecoratorProps.textAlign,
-  //               textAlignVertical:
-  //                   widget.dropdownDecoratorProps.textAlignVertical,
-  //               isEmpty: getSelectedItems.isEmpty &&
-  //                   widget.dropdownBuilderMultiSelection == null,
-  //               isFocused: isFocused,
-  //               decoration: _manageDropdownDecoration(state),
-  //               child: _defaultSelectedItemWidget(),
-  //             );
-  //           });
-  //     },
-  //   );
-  // }
+  Widget _formFieldMultiSelection() {
+    return FormField<List<T>>(
+      enabled: widget.enabled,
+      onSaved: widget.onSavedMultiSelection,
+      validator: widget.validatorMultiSelection,
+      autovalidateMode: widget.autoValidateMode,
+      initialValue: widget.selectedItems,
+      builder: (FormFieldState<List<T>> state) {
+        if (state.value != getSelectedItems) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            state.didChange(getSelectedItems);
+          });
+        }
+        return ValueListenableBuilder<bool>(
+            valueListenable: _isFocused,
+            builder: (context, isFocused, w) {
+              return InputDecorator(
+                baseStyle: widget.dropdownDecoratorProps.baseStyle,
+                textAlign: widget.dropdownDecoratorProps.textAlign,
+                textAlignVertical:
+                    widget.dropdownDecoratorProps.textAlignVertical,
+                isEmpty: getSelectedItems.isEmpty &&
+                    widget.dropdownBuilderMultiSelection == null,
+                isFocused: isFocused,
+                decoration: _manageDropdownDecoration(state),
+                child: _defaultSelectedItemWidget(),
+              );
+            });
+      },
+    );
+  }
 
   ///manage dropdownSearch field decoration
   InputDecoration _manageDropdownDecoration(FormFieldState state) {

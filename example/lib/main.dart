@@ -247,12 +247,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: DropdownSearch<int>(
                       items: [1, 2, 3, 4, 5, 6, 7],
                       autoValidateMode: AutovalidateMode.onUserInteraction,
-                      // validator: (int? i) {
-                      //   if (i == null)
-                      //     return 'required filed';
-                      //   else if (i >= 5) return 'value should be < 5';
-                      //   return null;
-                      // },
+                      validator: (int? i) {
+                        if (i == null)
+                          return 'required filed';
+                        else if (i >= 5) return 'value should be < 5';
+                        return null;
+                      },
                       clearButtonProps: ClearButtonProps(isVisible: true),
                     ),
                   ),
