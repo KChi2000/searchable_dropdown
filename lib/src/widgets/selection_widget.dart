@@ -424,7 +424,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     } else {
       return ListTile(
         enabled: !_isDisabled(item),
-        title: Text(item is ThongTinLaiXe? '${item.hoTen}':'$item',style: TextStyle(fontSize: 14),),
+        title: Text(item is ThongTinLaiXe? '${item.hoTen}':item is XeDuKienTheoKeHoach? '${item.bienKiemSoat}':'$item',style: TextStyle(fontSize: 14),),
         selected: !widget.popupProps.showSelectedItems
             ? false
             : _isSelectedItem(item),
@@ -809,5 +809,57 @@ class ThongTinLaiXe {
   @override
   String toString() {
     return hoTen;
+  }
+}
+class XeDuKienTheoKeHoach {
+  String idDnvtXePhuHieuTuyen;
+  String idDnvtXe;
+  int trongTai;
+  String idDnvtTuyen;
+  int soGiuong;
+  String idXe;
+  int soGhe;
+  String bienKiemSoat;
+  String phuHieuNgayCap;
+  String phuHieuNgayHetHan;
+
+  XeDuKienTheoKeHoach(
+      {required this.idDnvtXePhuHieuTuyen,
+      required this.idDnvtXe,
+      required this.trongTai,
+      required this.idDnvtTuyen,
+      required this.soGiuong,
+      required this.idXe,
+      required this.soGhe,
+      required this.bienKiemSoat,
+      required this.phuHieuNgayCap,
+      required this.phuHieuNgayHetHan});
+
+  // XeDuKienTheoKeHoach.fromJson(Map<String, dynamic> json) {
+  //   idDnvtXePhuHieuTuyen = json['IdDnvtXePhuHieuTuyen'];
+  //   idDnvtXe = json['IdDnvtXe'];
+  //   trongTai = json['TrongTai'];
+  //   idDnvtTuyen = json['IdDnvtTuyen'];
+  //   soGiuong = json['SoGiuong'];
+  //   idXe = json['IdXe'];
+  //   soGhe = json['SoGhe'];
+  //   bienKiemSoat = json['BienKiemSoat'];
+  //   phuHieuNgayCap = json['PhuHieu_NgayCap'];
+  //   phuHieuNgayHetHan = json['PhuHieu_NgayHetHan'];
+  // }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['IdDnvtXePhuHieuTuyen'] = this.idDnvtXePhuHieuTuyen;
+    data['IdDnvtXe'] = this.idDnvtXe;
+    data['TrongTai'] = this.trongTai;
+    data['IdDnvtTuyen'] = this.idDnvtTuyen;
+    data['SoGiuong'] = this.soGiuong;
+    data['IdXe'] = this.idXe;
+    data['SoGhe'] = this.soGhe;
+    data['BienKiemSoat'] = this.bienKiemSoat;
+    data['PhuHieu_NgayCap'] = this.phuHieuNgayCap;
+    data['PhuHieu_NgayHetHan'] = this.phuHieuNgayHetHan;
+    return data;
   }
 }

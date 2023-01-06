@@ -60,7 +60,7 @@ class TextFieldProps {
     this.controller,
     this.decoration = const InputDecoration(
         border: OutlineInputBorder(),
-        hintText: 'Nhập để tìm kiếm lái xe',
+        hintText: 'Nhập để tìm kiếm',
         hintStyle: TextStyle(fontSize: 14),
         isDense: true
         ),
