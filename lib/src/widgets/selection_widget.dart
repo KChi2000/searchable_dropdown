@@ -424,7 +424,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     } else {
       return ListTile(
         enabled: !_isDisabled(item),
-        title: Text(_selectedItemAsString(item)),
+        title: Text(_selectedItemAsString(item),style: TextStyle(fontSize: 14),),
         selected: !widget.popupProps.showSelectedItems
             ? false
             : _isSelectedItem(item),
@@ -481,7 +481,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
 
   Widget _searchField() {
     return Container(
-      color: Colors.pink,
+      height: 60,
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
@@ -610,7 +610,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: constraints.maxWidth),
+            constraints: BoxConstraints(minWidth: constraints.maxWidth,maxHeight: 40),
             child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment:

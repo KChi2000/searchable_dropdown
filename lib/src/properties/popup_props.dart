@@ -102,7 +102,7 @@ class PopupProps<T> {
     this.disabledItemFn,
     this.isFilterOnline = false,
     this.containerBuilder,
-    this.constraints = const BoxConstraints(),
+    this.constraints = const BoxConstraints(maxHeight: 200),
     this.interceptCallBacks = false,
   });
 
@@ -251,7 +251,7 @@ class PopupPropsMultiSelection<T> extends PopupProps<T> {
     super.dialogProps = const DialogProps(),
     super.menuProps = const MenuProps(),
     super.containerBuilder,
-    super.constraints = const BoxConstraints(maxHeight: 350),
+    super.constraints = const BoxConstraints(maxHeight: 200),
     super.interceptCallBacks = false,
     this.onItemAdded,
     this.onItemRemoved,
@@ -278,7 +278,7 @@ class PopupPropsMultiSelection<T> extends PopupProps<T> {
     super.disabledItemFn,
     super.isFilterOnline = false,
     super.containerBuilder,
-    super.constraints = const BoxConstraints(maxHeight: 350),
+    super.constraints = const BoxConstraints(maxHeight: 200),
     super.interceptCallBacks = false,
     this.onItemAdded,
     this.onItemRemoved,
