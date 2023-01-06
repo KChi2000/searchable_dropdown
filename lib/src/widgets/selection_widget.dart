@@ -685,13 +685,13 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
   }
 
   ///function that return the String value of an object
-  String _selectedItemAsString(T data) {
+  String _selectedItemAsString(dynamic data) {
     if (data == null) {
       return "";
     } else if (widget.itemAsString != null) {
       return widget.itemAsString!(data);
     } else {
-      return data.toString();
+      return data.hoTen.toString();
     }
   }
 
@@ -733,4 +733,81 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
       _selectedItems.length >= _currentShowedItems.length;
 
   List<T> get getSelectedItem => List.from(_selectedItems);
+}
+
+class ThongTinLaiXe {
+  String idDnvtLaiXeHoatDongTuyen;
+  String idDnvtLaiXe;
+  String idDnvtTuyen;
+  String ngayBatDau;
+  String ngayKetThuc;
+  String hdSo;
+  String hdNgayHieuLuc;
+  String hdNgayHetHan;
+  String hoTen;
+  String gplxMaSo;
+  String gplxHang;
+  String gplxNgayCap;
+  String gplxThoiHanHieuLuc;
+  String gplxNoiCap;
+  String gioiTinh;
+  String ngaySinh;
+  String dienThoai;
+  String diaChi;
+  int laiXeHoatDongTrenTuyen;
+  bool check = false;
+
+  ThongTinLaiXe(
+      {required this.idDnvtLaiXeHoatDongTuyen,
+      required this.idDnvtLaiXe,
+      required this.idDnvtTuyen,
+      required this.ngayBatDau,
+      required this.ngayKetThuc,
+      required this.hdSo,
+      required this.hdNgayHieuLuc,
+      required this.hdNgayHetHan,
+      required this.hoTen,
+      required this.gplxMaSo,
+      required this.gplxHang,
+      required this.gplxNgayCap,
+      required this.gplxThoiHanHieuLuc,
+      required this.gplxNoiCap,
+      required this.gioiTinh,
+      required this.ngaySinh,
+      required this.dienThoai,
+      required this.diaChi,
+      required this.laiXeHoatDongTrenTuyen,
+      required this.check});
+
+  
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['IdDnvtLaiXeHoatDongTuyen'] = this.idDnvtLaiXeHoatDongTuyen;
+    data['IdDnvtLaiXe'] = this.idDnvtLaiXe;
+    data['IdDnvtTuyen'] = this.idDnvtTuyen;
+    data['NgayBatDau'] = this.ngayBatDau;
+    data['NgayKetThuc'] = this.ngayKetThuc;
+    data['HdSo'] = this.hdSo;
+    data['HdNgayHieuLuc'] = this.hdNgayHieuLuc;
+    data['HdNgayHetHan'] = this.hdNgayHetHan;
+    data['HoTen'] = this.hoTen;
+    data['GplxMaSo'] = this.gplxMaSo;
+    data['GplxHang'] = this.gplxHang;
+    data['GplxNgayCap'] = this.gplxNgayCap;
+    data['GplxThoiHanHieuLuc'] = this.gplxThoiHanHieuLuc;
+    data['GplxNoiCap'] = this.gplxNoiCap;
+    data['GioiTinh'] = this.gioiTinh;
+    data['NgaySinh'] = this.ngaySinh;
+    data['DienThoai'] = this.dienThoai;
+    data['DiaChi'] = this.diaChi;
+    data['LaiXeHoatDongTrenTuyen'] = this.laiXeHoatDongTrenTuyen;
+    return data;
+  }
+
+ 
+
+  @override
+  String toString() {
+    return hoTen;
+  }
 }
