@@ -480,22 +480,22 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
   }
 
   Widget _searchField() {
-    return Container(
-      height: 60,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            widget.popupProps.title ?? const SizedBox.shrink(),
-            if (widget.popupProps.showSearchBox)
-              Padding(
-                padding: widget.popupProps.searchFieldProps.padding,
-                child: DefaultTextEditingShortcuts(
-                  child: Shortcuts(
-                    shortcuts: const <ShortcutActivator, Intent>{
-                      SingleActivator(LogicalKeyboardKey.space):
-                          DoNothingAndStopPropagationTextIntent(),
-                    },
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          widget.popupProps.title ?? const SizedBox.shrink(),
+          if (widget.popupProps.showSearchBox)
+            Padding(
+              padding: widget.popupProps.searchFieldProps.padding,
+              child: DefaultTextEditingShortcuts(
+                child: Shortcuts(
+                  shortcuts: const <ShortcutActivator, Intent>{
+                    SingleActivator(LogicalKeyboardKey.space):
+                        DoNothingAndStopPropagationTextIntent(),
+                  },
+                  child: Container(
+                    height: 30,
                     child: TextField(
                       enableIMEPersonalizedLearning: widget.popupProps
                           .searchFieldProps.enableIMEPersonalizedLearning,
@@ -578,9 +578,9 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
                     ),
                   ),
                 ),
-              )
-          ]),
-    );
+              ),
+            )
+        ]);
   }
 
   Widget _favoriteItemsWidget() {
