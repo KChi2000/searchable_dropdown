@@ -26,7 +26,7 @@ class TextFieldProps {
   final bool obscureText;
   final bool autocorrect;
   final bool enableSuggestions;
-  final int maxLines;
+  final int? maxLines;
   final int minLines;
   final bool expands;
   final bool readOnly;
@@ -59,9 +59,10 @@ class TextFieldProps {
   const TextFieldProps({
     this.controller,
     this.decoration = const InputDecoration(
-        // border: OutlineInputBorder(),
+        border: OutlineInputBorder(),
         hintText: 'Nhập để tìm kiếm lái xe',
-        hintStyle: TextStyle(color: Colors.black)),
+        // hintStyle: TextStyle(color: Colors.black)
+        ),
     this.keyboardType,
     this.textInputAction,
     this.textCapitalization = TextCapitalization.none,
@@ -80,7 +81,7 @@ class TextFieldProps {
     this.smartDashesType,
     this.smartQuotesType,
     this.enableSuggestions = true,
-    this.maxLines = 1,
+    this.maxLines,
     this.minLines = 1,
     this.expands = false,
     this.maxLength=null,
