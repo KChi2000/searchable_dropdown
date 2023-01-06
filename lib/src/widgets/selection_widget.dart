@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -872,5 +873,10 @@ class XeDuKienTheoKeHoach {
     data['PhuHieu_NgayCap'] = this.phuHieuNgayCap;
     data['PhuHieu_NgayHetHan'] = this.phuHieuNgayHetHan;
     return data;
+  }
+
+  @override
+  String toString() {
+    return '$bienKiemSoat';
   }
 }
