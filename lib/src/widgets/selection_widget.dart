@@ -424,7 +424,14 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
     } else {
       return ListTile(
         enabled: !_isDisabled(item),
-        title: Text(item is ThongTinLaiXe? '${item.hoTen}':item is XeDuKienTheoKeHoach? '${item.bienKiemSoat}':'$item',style: TextStyle(fontSize: 14),),
+        title: Text(
+          item is ThongTinLaiXe
+              ? '${item.hoTen}'
+              : item is XeDuKienTheoKeHoach
+                  ? '${item.bienKiemSoat}'
+                  : '$item',
+          style: TextStyle(fontSize: 14),
+        ),
         selected: !widget.popupProps.showSelectedItems
             ? false
             : _isSelectedItem(item),
@@ -524,8 +531,10 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
                       showCursor: widget.popupProps.searchFieldProps.showCursor,
                       obscuringCharacter:
                           widget.popupProps.searchFieldProps.obscuringCharacter,
-                      obscureText: widget.popupProps.searchFieldProps.obscureText,
-                      autocorrect: widget.popupProps.searchFieldProps.autocorrect,
+                      obscureText:
+                          widget.popupProps.searchFieldProps.obscureText,
+                      autocorrect:
+                          widget.popupProps.searchFieldProps.autocorrect,
                       smartDashesType:
                           widget.popupProps.searchFieldProps.smartDashesType,
                       smartQuotesType:
@@ -535,36 +544,39 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
                       maxLines: widget.popupProps.searchFieldProps.maxLines,
                       minLines: widget.popupProps.searchFieldProps.minLines,
                       expands: widget.popupProps.searchFieldProps.expands,
-                      maxLengthEnforcement:
-                          widget.popupProps.searchFieldProps.maxLengthEnforcement,
+                      maxLengthEnforcement: widget
+                          .popupProps.searchFieldProps.maxLengthEnforcement,
                       maxLength: widget.popupProps.searchFieldProps.maxLength,
-                      onAppPrivateCommand:
-                          widget.popupProps.searchFieldProps.onAppPrivateCommand,
+                      onAppPrivateCommand: widget
+                          .popupProps.searchFieldProps.onAppPrivateCommand,
                       inputFormatters:
                           widget.popupProps.searchFieldProps.inputFormatters,
                       enabled: widget.popupProps.searchFieldProps.enabled,
-                      cursorWidth: widget.popupProps.searchFieldProps.cursorWidth,
+                      cursorWidth:
+                          widget.popupProps.searchFieldProps.cursorWidth,
                       cursorHeight:
                           widget.popupProps.searchFieldProps.cursorHeight,
                       cursorRadius:
                           widget.popupProps.searchFieldProps.cursorRadius,
-                      cursorColor: widget.popupProps.searchFieldProps.cursorColor,
-                      selectionHeightStyle:
-                          widget.popupProps.searchFieldProps.selectionHeightStyle,
-                      selectionWidthStyle:
-                          widget.popupProps.searchFieldProps.selectionWidthStyle,
+                      cursorColor:
+                          widget.popupProps.searchFieldProps.cursorColor,
+                      selectionHeightStyle: widget
+                          .popupProps.searchFieldProps.selectionHeightStyle,
+                      selectionWidthStyle: widget
+                          .popupProps.searchFieldProps.selectionWidthStyle,
                       keyboardAppearance:
                           widget.popupProps.searchFieldProps.keyboardAppearance,
                       scrollPadding:
                           widget.popupProps.searchFieldProps.scrollPadding,
                       dragStartBehavior:
                           widget.popupProps.searchFieldProps.dragStartBehavior,
-                      enableInteractiveSelection: widget
-                          .popupProps.searchFieldProps.enableInteractiveSelection,
+                      enableInteractiveSelection: widget.popupProps
+                          .searchFieldProps.enableInteractiveSelection,
                       selectionControls:
                           widget.popupProps.searchFieldProps.selectionControls,
                       onTap: widget.popupProps.searchFieldProps.onTap,
-                      mouseCursor: widget.popupProps.searchFieldProps.mouseCursor,
+                      mouseCursor:
+                          widget.popupProps.searchFieldProps.mouseCursor,
                       buildCounter:
                           widget.popupProps.searchFieldProps.buildCounter,
                       scrollController:
@@ -610,7 +622,8 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: constraints.maxWidth,maxHeight: 40),
+            constraints:
+                BoxConstraints(minWidth: constraints.maxWidth, maxHeight: 40),
             child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment:
@@ -779,7 +792,6 @@ class ThongTinLaiXe {
       required this.laiXeHoatDongTrenTuyen,
       required this.check});
 
-  
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['IdDnvtLaiXeHoatDongTuyen'] = this.idDnvtLaiXeHoatDongTuyen;
@@ -804,13 +816,12 @@ class ThongTinLaiXe {
     return data;
   }
 
- 
-
   @override
   String toString() {
     return hoTen;
   }
 }
+
 class XeDuKienTheoKeHoach {
   String idDnvtXePhuHieuTuyen;
   String idDnvtXe;
