@@ -495,7 +495,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
                         DoNothingAndStopPropagationTextIntent(),
                   },
                   child: Container(
-                    height: 40,
+                    height: 50,
                     child: TextField(
                       enableIMEPersonalizedLearning: widget.popupProps
                           .searchFieldProps.enableIMEPersonalizedLearning,
