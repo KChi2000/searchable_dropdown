@@ -278,7 +278,7 @@ class SelectionWidgetState<T> extends State<SelectionWidget<T>> {
       );
     else
       return Container(
-        height: 70,
+        height: 20,
         alignment: Alignment.center,
         child: Text("Không tìm thấy dữ liệu"),
       );
