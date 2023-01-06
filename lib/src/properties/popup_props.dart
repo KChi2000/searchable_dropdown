@@ -125,7 +125,7 @@ class PopupProps<T> {
     this.disabledItemFn,
     this.isFilterOnline = false,
     this.containerBuilder,
-    this.constraints = const BoxConstraints(maxHeight: 350),
+    this.constraints = const BoxConstraints(maxHeight: 200),
     this.interceptCallBacks = false,
   })  : this.mode = Mode.MENU,
         this.bottomSheetProps = const BottomSheetProps(),
