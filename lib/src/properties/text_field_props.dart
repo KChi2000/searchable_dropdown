@@ -59,7 +59,7 @@ class TextFieldProps {
   const TextFieldProps({
     this.controller,
     this.decoration = const InputDecoration(
-        border: OutlineInputBorder(),
+        // border: OutlineInputBorder(),
         hintText: 'Nhập để tìm kiếm lái xe',
         hintStyle: TextStyle(color: Colors.black)),
     this.keyboardType,
@@ -83,7 +83,7 @@ class TextFieldProps {
     this.maxLines = 1,
     this.minLines = 1,
     this.expands = false,
-    this.maxLength,
+    this.maxLength=null,
     this.maxLengthEnforcement,
     this.onAppPrivateCommand,
     this.inputFormatters,
