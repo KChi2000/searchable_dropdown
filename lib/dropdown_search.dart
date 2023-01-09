@@ -545,7 +545,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
             popupButtonObject.size.bottomRight(Offset.zero),
             ancestor: overlay),
       ),
-      Size(overlay.size.width, overlay.size.height),
+      Size(overlay.size.width, overlay.size.height-100),
     );
   }
 
