@@ -95,7 +95,7 @@ class DropdownSearch<T> extends StatefulWidget {
   ///called when a new item is selected
   final ValueChanged<T?>? onChanged;
   /// on tap dropdown custom
-  void ontap;
+ final void ontap;
 
   ///called when a new items are selected
   final ValueChanged<List<T>>? onChangedMultiSelection;
@@ -291,7 +291,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
           ignoring: !widget.enabled,
           child: InkWell(
             onTap: () {
-              
+              widget.ontap;
               _selectSearchMode();
             },
             child: _formField(),
