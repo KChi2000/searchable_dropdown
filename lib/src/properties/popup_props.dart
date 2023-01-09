@@ -102,7 +102,7 @@ class PopupProps<T> {
     this.disabledItemFn,
     this.isFilterOnline = false,
     this.containerBuilder,
-    this.constraints = const BoxConstraints(maxHeight: 320,minHeight: 50),
+    this.constraints = const BoxConstraints(maxHeight: 200,minHeight: 50),
     this.interceptCallBacks = false,
   });
 
@@ -125,7 +125,7 @@ class PopupProps<T> {
     this.disabledItemFn,
     this.isFilterOnline = false,
     this.containerBuilder,
-    this.constraints = const BoxConstraints(maxHeight: 320,minHeight: 50),
+    this.constraints = const BoxConstraints(maxHeight: 200,minHeight: 50),
     this.interceptCallBacks = false,
   })  : this.mode = Mode.MENU,
         this.bottomSheetProps = const BottomSheetProps(),
