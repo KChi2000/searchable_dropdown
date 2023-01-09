@@ -94,6 +94,8 @@ class DropdownSearch<T> extends StatefulWidget {
 
   ///called when a new item is selected
   final ValueChanged<T?>? onChanged;
+  /// on tap dropdown custom
+   VoidCallback? ontap;
 
   ///called when a new items are selected
   final ValueChanged<List<T>>? onChangedMultiSelection;
@@ -168,6 +170,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.validator,
     this.autoValidateMode = AutovalidateMode.disabled,
     this.onChanged,
+    this.ontap,
     this.items = const [],
     this.selectedItem,
     this.asyncItems,
@@ -183,7 +186,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.onBeforePopupOpening,
     PopupProps<T> popupProps = const PopupProps.menu(),
   })  : assert(
-          !popupProps.showSelectedItems || compareFn != null,
+          !popupProps.showSelectedItems || T == String || compareFn != null,
         ),
         this.popupProps = PopupPropsMultiSelection.from(popupProps),
         this.isMultiSelectionMode = false,
@@ -206,6 +209,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.dropdownButtonProps = const DropdownButtonProps(),
     this.enabled = true,
     this.filterFn,
+    this.ontap,
     this.itemAsString,
     this.compareFn,
     this.selectedItems = const [],
@@ -286,7 +290,10 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         return IgnorePointer(
           ignoring: !widget.enabled,
           child: InkWell(
-            onTap: () => _selectSearchMode(),
+            onTap: () {
+              widget.ontap;
+              _selectSearchMode();
+            },
             child: _formField(),
           ),
         );
