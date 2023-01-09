@@ -95,7 +95,7 @@ class DropdownSearch<T> extends StatefulWidget {
   ///called when a new item is selected
   final ValueChanged<T?>? onChanged;
   /// on tap dropdown custom
- final void ontap;
+ final VoidCallback? ontap;
 
   ///called when a new items are selected
   final ValueChanged<List<T>>? onChangedMultiSelection;
