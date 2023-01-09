@@ -291,7 +291,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
           ignoring: !widget.enabled,
           child: InkWell(
             onTap: () {
-              widget.ontap;
+              
               _selectSearchMode();
             },
             child: _formField(),
@@ -384,6 +384,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
       enabled: widget.enabled,
       onSaved: widget.onSaved,
       validator: widget.validator,
+      
       autovalidateMode: widget.autoValidateMode,
       initialValue: widget.selectedItem,
       builder: (FormFieldState<T> state) {
@@ -737,6 +738,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
   ///another widget we should clear the focus
   Future<void> _selectSearchMode() async {
     //handle onBefore popupOpening
+    widget.ontap;
     if (widget.onBeforePopupOpening != null) {
       if (await widget.onBeforePopupOpening!(getSelectedItem) == false) return;
     } else if (widget.onBeforePopupOpeningMultiSelection != null) {
